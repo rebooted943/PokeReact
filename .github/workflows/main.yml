@@ -1,0 +1,20 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        working-directory: poke-cards-react
+        run: npm install
+
+      - name: Build project
+        working-directory: poke-cards-react
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        working-directory: poke-cards-react
+        run: npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
