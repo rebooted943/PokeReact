@@ -12,6 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Git
+        run: |
+          git config --global user.email "adrian.bucur94@proton.me"
+          git config --global user.name "rebooted943"
+
       - name: Install dependencies
         working-directory: poke-cards-react
         run: npm install
