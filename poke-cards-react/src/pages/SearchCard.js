@@ -44,10 +44,10 @@ const SearchCard = () => {
 
         <div className="w-3/4 flex flex-wrap">
             {selectedItems.map((item) => (
-                <div key={item.id} className="p-2 w-1/4 items-center flex" onClick={() => handleItemClick(item.id)}>
+                <div key={item.id} className="p-2 w-1/6 items-center flex" onClick={() => handleItemClick(item.id)}>
                     {console.log(item)}
                     <div>
-                        <h2>{item.name}</h2>
+                        <h5>{item.name}</h5>
                         <p>{item.cardmarket && item.cardmarket.prices && item.cardmarket.prices.avg30}€</p>
                     <div><img src={item.images.small}></img></div>
 
