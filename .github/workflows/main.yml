@@ -2,7 +2,7 @@ name: Build and Deploy
 
 permissions:
   contents: write
-  
+
 on:
   push:
     branches:
@@ -32,4 +32,5 @@ jobs:
         working-directory: poke-cards-react
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run deploy
+        run: |
+          npx gh-pages -d build --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
