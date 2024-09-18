@@ -47,7 +47,7 @@ const SearchCard = () => {
                 <div key={item.id} className="p-2 w-1/6 items-center flex" onClick={() => handleItemClick(item.id)}>
                     {console.log(item)}
                     <div>
-                        <h4>{item.name}</h4>
+                        <h2>{item.name}</h2>
                         <p>{item.cardmarket && item.cardmarket.prices && item.cardmarket.prices.avg30}€</p>
                     <div><img src={item.images.small}></img></div>
 
