@@ -8,7 +8,7 @@ const SearchCard = () => {
     const cardsToShow = data.slice(0,10);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 20;
+    const itemsPerPage = 10;
 
     const filteredData = data.filter((item) => 
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -31,37 +31,47 @@ const SearchCard = () => {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-
-                <div>
-                    {selectedItems.map((item) => (
-                        <div key={item.id} onClick={() => handleItemClick(item.id)}>
-                            <h2>{item.name}</h2>
-                        </div>
-                    ))}
-                </div>
-
-                <div>
-                    <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
-                        Previous
-                    </button>
-                    <span>Page {currentPage} of {totalPages}</span>
-                    <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
-                        Next
-                    </button>
-                </div>
-
-                <button onClick={() => navigate('/')}>
-                    Go back home
-                </button>
-            </header>
+    <header className="App-header flex justify-between flex-wrap items-start">
+        <div className="w-1/4 mt-8 mb-8">
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="border p-2 rounded"
+            />
         </div>
+
+        <div className="w-3/4 flex flex-wrap">
+            {selectedItems.map((item) => (
+                <div key={item.id} className="p-2 w-1/4 items-center flex" onClick={() => handleItemClick(item.id)}>
+                    {console.log(item)}
+                    <div>
+                        <h2>{item.name}</h2>
+                        <p>{item.cardmarket && item.cardmarket.prices && item.cardmarket.prices.avg30}€</p>
+                    <div><img src={item.images.small}></img></div>
+
+                    </div>
+                </div>
+            ))}
+        </div>
+    </header>
+
+    <div className="flex justify-between mt-4">
+        <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="p-2 bg-gray-300 rounded">
+            Previous
+        </button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="p-2 bg-gray-300 rounded">
+            Next
+        </button>
+    </div>
+
+    <button onClick={() => navigate('/')} className="mt-4 p-2 bg-blue-500 text-white rounded">
+        Go back home
+    </button>
+</div>
+
     );
 };
 
