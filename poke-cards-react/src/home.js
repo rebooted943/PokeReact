@@ -13,12 +13,12 @@ const Home = () => {
         <p>
           Look for your card.
         </p>
-        <a
-          className="App-link"
+        <div
+          cldivssName="App-link"
           onClick={()=> navigate('/search')}
         >
           Let's start
-        </a>
+        </div>
       </header>
     </div>
     )

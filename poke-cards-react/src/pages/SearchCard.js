@@ -5,7 +5,7 @@ import data from "./../data/data.json"
 const SearchCard = () => {
 
     const navigate = useNavigate();
-    const cardsToShow = data.slice(0,10);
+    // const cardsToShow = data.slice(0,10);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
@@ -49,7 +49,7 @@ const SearchCard = () => {
                     <div>
                         <h2>{item.name}</h2>
                         <p>{item.cardmarket && item.cardmarket.prices && item.cardmarket.prices.avg30}€</p>
-                    <div><img src={item.images.small}></img></div>
+                    <div><img src={item.images.small} alt={item.name}></img></div>
 
                     </div>
                 </div>
